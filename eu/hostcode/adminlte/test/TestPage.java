@@ -13,6 +13,9 @@ import eu.hostcode.adminlte.PageBody;
 import eu.hostcode.adminlte.body.SimpleWebComponent;
 import eu.hostcode.adminlte.body.components.simple.WebComponentInfoBox;
 import eu.hostcode.adminlte.body.components.simple.WebComponentInfoBoxProgress;
+import eu.hostcode.adminlte.body.util.WebComponentColumn;
+import eu.hostcode.adminlte.body.util.WebComponentColumn.ColumnType;
+import eu.hostcode.adminlte.body.util.WebComponentRow;
 import eu.hostcode.adminlte.nav.NavigationBar;
 import eu.hostcode.adminlte.nav.UserButtonPosition;
 import eu.hostcode.adminlte.nav.WidgetSmall;
@@ -117,7 +120,7 @@ public class TestPage extends HttpServlet {
 		// Simple Text
 		PageBody body = page.getPageBody();
 		body.addWebComponent(new SimpleWebComponent() {
-
+			
 			@Override
 			public String getHTML() {
 				return "Hallo<br>Hi";
@@ -126,7 +129,7 @@ public class TestPage extends HttpServlet {
 
 		// Box
 		body.addWebComponent(new SimpleTestBox("Test1"));
-
+		// Normal info Box
 		body.addWebComponent(new WebComponentInfoBox() {
 
 			@Override
@@ -150,7 +153,7 @@ public class TestPage extends HttpServlet {
 			}
 		});
 		// Test Progress info Box
-		body.addWebComponent(new WebComponentInfoBoxProgress() {
+		WebComponentInfoBoxProgress i = new WebComponentInfoBoxProgress() {
 
 			@Override
 			public int getProgress() {
@@ -181,7 +184,22 @@ public class TestPage extends HttpServlet {
 			public BGColor getColor() {
 				return BGColor.red;
 			}
-		});
+		};
+		WebComponentRow row = body.addNewRow();
+		row.addWebComponent(new WebComponentColumn(i).setTypes(ColumnType.col_xs_12));
+		row.addWebComponent(new WebComponentColumn(i).setTypes(ColumnType.col_xs_12));
+		row.addWebComponent(new WebComponentColumn(i).setTypes(ColumnType.col_xs_12));
+
+		WebComponentRow row2 = body.addNewRow();
+		row2.addWebComponent(new WebComponentColumn(i).setTypes(ColumnType.col_sm_6));
+		row2.addWebComponent(new WebComponentColumn(i).setTypes(ColumnType.col_sm_6));
+		row2.addWebComponent(new WebComponentColumn(i).setTypes(ColumnType.col_sm_6));
+		WebComponentRow row3 = body.addNewRow();
+		row3.addWebComponent(new WebComponentColumn(i).setTypes(ColumnType.col_md_3, ColumnType.col_sm_6, ColumnType.col_xs_12));
+		row3.addWebComponent(new WebComponentColumn(i).setTypes(ColumnType.col_md_3, ColumnType.col_sm_6, ColumnType.col_xs_12));
+		row3.addWebComponent(new WebComponentColumn(i).setTypes(ColumnType.col_md_3, ColumnType.col_sm_6, ColumnType.col_xs_12));
+		row3.addWebComponent(new WebComponentColumn(i).setTypes(ColumnType.col_md_3, ColumnType.col_sm_6, ColumnType.col_xs_12));
+
 
 		// Write to Client
 		response.getWriter().append(page.getHTML());

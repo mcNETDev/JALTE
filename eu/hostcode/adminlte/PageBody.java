@@ -3,6 +3,7 @@ package eu.hostcode.adminlte;
 import java.util.ArrayList;
 
 import eu.hostcode.adminlte.body.WebComponent;
+import eu.hostcode.adminlte.body.util.WebComponentColumn;
 import eu.hostcode.adminlte.body.util.WebComponentRow;
 import eu.hostcode.adminlte.util.HTMLAble;
 
@@ -20,7 +21,11 @@ public class PageBody implements HTMLAble {
 		comps.add(row);
 		return row;
 	}
-
+	public WebComponentColumn addNewColumn(WebComponent... comp) {
+		WebComponentColumn row = new WebComponentColumn(comp);
+		comps.add(row);
+		return row;
+	}
 	public boolean addWebComponent(WebComponent e) {
 		return comps.add(e);
 	}

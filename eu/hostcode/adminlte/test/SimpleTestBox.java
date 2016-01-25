@@ -68,8 +68,6 @@ public class SimpleTestBox extends WebComponentBox {
 	}
 
 	@Override
-	public void init() {
-
-	}
+	public void init() {}
 
 }
