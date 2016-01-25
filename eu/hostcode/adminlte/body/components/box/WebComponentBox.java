@@ -1,9 +1,6 @@
 package eu.hostcode.adminlte.body.components.box;
 
-import org.apache.tomcat.util.http.HttpMessages;
-
 import eu.hostcode.adminlte.body.SimpleStackableWebComponent;
-import eu.hostcode.adminlte.body.StackableWebComponent;
 import eu.hostcode.adminlte.body.WebComponent;
 import eu.hostcode.adminlte.util.HTMLAble;
 import eu.hostcode.adminlte.util.Initable;

@@ -2,7 +2,6 @@ package eu.hostcode.adminlte.nav;
 
 import java.util.ArrayList;
 
-import eu.hostcode.adminlte.util.HTMLAble;
 import eu.hostcode.adminlte.util.LabelType;
 
 public class WidgetSmall extends Widget {

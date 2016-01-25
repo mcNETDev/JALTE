@@ -2,8 +2,6 @@ package eu.hostcode.adminlte.nav;
 
 import java.util.ArrayList;
 
-import eu.hostcode.adminlte.util.HTMLAble;
-
 public class WidgetUser extends Widget {
 	private String imagePath;
 	private String displayName;

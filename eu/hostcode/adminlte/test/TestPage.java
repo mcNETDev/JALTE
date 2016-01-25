@@ -1,7 +1,7 @@
 package eu.hostcode.adminlte.test;
 
-import java.awt.Font;
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,17 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import eu.hostcode.adminlte.Page;
 import eu.hostcode.adminlte.PageBody;
 import eu.hostcode.adminlte.body.SimpleWebComponent;
-import eu.hostcode.adminlte.body.StackableWebComponent;
-import eu.hostcode.adminlte.body.WebComponent;
-import eu.hostcode.adminlte.body.components.box.BoxFeature;
-import eu.hostcode.adminlte.body.components.box.WebComponentBox;
-import eu.hostcode.adminlte.body.components.box.WebComponentBox.BoxColor;
-import eu.hostcode.adminlte.body.components.box.WebComponentBox.BoxType;
-import eu.hostcode.adminlte.body.components.box.features.BoxCollapsable;
-import eu.hostcode.adminlte.body.components.box.features.BoxExpandable;
-import eu.hostcode.adminlte.body.components.box.features.BoxRemovable;
 import eu.hostcode.adminlte.body.components.simple.WebComponentInfoBox;
-import eu.hostcode.adminlte.body.components.simple.WebComponentLabel;
+import eu.hostcode.adminlte.body.components.simple.WebComponentInfoBoxProgress;
 import eu.hostcode.adminlte.nav.NavigationBar;
 import eu.hostcode.adminlte.nav.UserButtonPosition;
 import eu.hostcode.adminlte.nav.WidgetSmall;
@@ -30,7 +21,6 @@ import eu.hostcode.adminlte.nav.WidgetUser;
 import eu.hostcode.adminlte.nav.WidgetUserButton;
 import eu.hostcode.adminlte.nav.WidgetUserButtonNormal;
 import eu.hostcode.adminlte.nav.items.WidgetItemMessage;
-import eu.hostcode.adminlte.nav.items.WidgetItemNotification;
 import eu.hostcode.adminlte.nav.items.WidgetItemProgress;
 import eu.hostcode.adminlte.sideBar.menu.BGColor;
 import eu.hostcode.adminlte.sideBar.menu.Menu;
@@ -41,7 +31,6 @@ import eu.hostcode.adminlte.util.FontAwesome;
 import eu.hostcode.adminlte.util.LabelType;
 import eu.hostcode.adminlte.util.ProgressBarColor;
 import eu.hostcode.adminlte.util.Skin;
-import eu.hostcode.adminlte.util.TextColor;
 
 @WebServlet("/TestPage")
 public class TestPage extends HttpServlet {
@@ -153,6 +142,39 @@ public class TestPage extends HttpServlet {
 			@Override
 			public String getHeaderText() {
 				return "Messages";
+			}
+
+			@Override
+			public BGColor getColor() {
+				return BGColor.red;
+			}
+		});
+		// Test Progress info Box
+		body.addWebComponent(new WebComponentInfoBoxProgress() {
+
+			@Override
+			public int getProgress() {
+				return 10;
+			}
+
+			@Override
+			public String getInnerText() {
+				return "Inner Text";
+			}
+
+			@Override
+			public String getIcon() {
+				return FontAwesome.ANCHOR;
+			}
+
+			@Override
+			public String getHeaderText() {
+				return "header Text";
+			}
+
+			@Override
+			public String getDownText() {
+				return "down Text";
 			}
 
 			@Override

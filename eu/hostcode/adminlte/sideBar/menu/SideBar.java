@@ -3,7 +3,6 @@ package eu.hostcode.adminlte.sideBar.menu;
 import java.util.ArrayList;
 
 import eu.hostcode.adminlte.sideBar.SideBarUser;
-import eu.hostcode.adminlte.sideBar.menu.MenuCategory;
 import eu.hostcode.adminlte.util.HTMLAble;
 
 public class SideBar implements HTMLAble {

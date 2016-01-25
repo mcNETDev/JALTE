@@ -1,7 +1,6 @@
 package eu.hostcode.adminlte.nav.items;
 
 import eu.hostcode.adminlte.nav.WidgetItem;
-import eu.hostcode.adminlte.util.HTMLAble;
 
 public class WidgetItemMessage extends WidgetItem {
 	private String imagePath;

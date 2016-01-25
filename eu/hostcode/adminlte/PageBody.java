@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import eu.hostcode.adminlte.body.WebComponent;
 import eu.hostcode.adminlte.body.util.WebComponentRow;
-import eu.hostcode.adminlte.test.SimpleTestBox;
 import eu.hostcode.adminlte.util.HTMLAble;
 
 public class PageBody implements HTMLAble {

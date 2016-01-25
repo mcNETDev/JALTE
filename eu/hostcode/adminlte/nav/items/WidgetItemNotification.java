@@ -1,7 +1,6 @@
 package eu.hostcode.adminlte.nav.items;
 
 import eu.hostcode.adminlte.nav.WidgetItem;
-import eu.hostcode.adminlte.util.HTMLAble;
 import eu.hostcode.adminlte.util.TextColor;
 
 public class WidgetItemNotification extends WidgetItem {

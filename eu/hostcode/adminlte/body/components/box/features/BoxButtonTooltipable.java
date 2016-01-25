@@ -1,7 +1,6 @@
 package eu.hostcode.adminlte.body.components.box.features;
 
 import eu.hostcode.adminlte.body.SimpleWebComponent;
-import eu.hostcode.adminlte.body.WebComponent;
 import eu.hostcode.adminlte.body.components.box.BoxFeature;
 
 public abstract class BoxButtonTooltipable extends SimpleWebComponent implements BoxFeature {
