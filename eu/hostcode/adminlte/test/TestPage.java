@@ -82,7 +82,7 @@ public class TestPage extends HttpServlet {
 		s2.getItems().add(message3);
 		bar.addWidget(s2);
 
-		WidgetUser user = new WidgetUser("avatar.png", "Daniel W.", "Daniel Wieckhorst Professor", "This is my Name");
+		WidgetUser user = new WidgetUser("avatar.png", "Daniel", "Daniel asdasdasd-.", "This is my Name");
 		user.getButtons().add(new WidgetUserButtonNormal("button1", "#button1"));
 		user.getButtons().add(new WidgetUserButtonNormal("button2", "#button2"));
 		user.getButtons().add(new WidgetUserButtonNormal("button3", "#button3"));
@@ -120,7 +120,7 @@ public class TestPage extends HttpServlet {
 		// Simple Text
 		PageBody body = page.getPageBody();
 		body.addWebComponent(new SimpleWebComponent() {
-			
+
 			@Override
 			public String getHTML() {
 				return "Hallo<br>Hi";
@@ -130,7 +130,7 @@ public class TestPage extends HttpServlet {
 		// Box
 		body.addWebComponent(new SimpleTestBox("Test1"));
 		// Normal info Box
-		body.addWebComponent(new WebComponentInfoBox() {
+		body.addNewRow(new WebComponentColumn(new WebComponentInfoBox() {
 
 			@Override
 			public String getInnerText() {
@@ -151,7 +151,7 @@ public class TestPage extends HttpServlet {
 			public BGColor getColor() {
 				return BGColor.red;
 			}
-		});
+		}).setTypes(ColumnType.col_md_5));
 		// Test Progress info Box
 		WebComponentInfoBoxProgress i = new WebComponentInfoBoxProgress() {
 
@@ -186,19 +186,16 @@ public class TestPage extends HttpServlet {
 			}
 		};
 		WebComponentRow row = body.addNewRow();
-		row.addWebComponent(new WebComponentColumn(i).setTypes(ColumnType.col_xs_12));
-		row.addWebComponent(new WebComponentColumn(i).setTypes(ColumnType.col_xs_12));
-		row.addWebComponent(new WebComponentColumn(i).setTypes(ColumnType.col_xs_12));
+		row.addWebComponent(new WebComponentColumn(i).setTypes(ColumnType.col_md_3));
+		row.addWebComponent(new WebComponentColumn(i).setTypes(ColumnType.col_md_3));
+		row.addWebComponent(new WebComponentColumn(i).setTypes(ColumnType.col_md_3));
+		row.addWebComponent(new WebComponentColumn(new SimpleTestBox("Test Box")).setTypes(ColumnType.col_md_3));
 
-		WebComponentRow row2 = body.addNewRow();
-		row2.addWebComponent(new WebComponentColumn(i).setTypes(ColumnType.col_sm_6));
-		row2.addWebComponent(new WebComponentColumn(i).setTypes(ColumnType.col_sm_6));
-		row2.addWebComponent(new WebComponentColumn(i).setTypes(ColumnType.col_sm_6));
-		WebComponentRow row3 = body.addNewRow();
-		row3.addWebComponent(new WebComponentColumn(i).setTypes(ColumnType.col_md_3, ColumnType.col_sm_6, ColumnType.col_xs_12));
-		row3.addWebComponent(new WebComponentColumn(i).setTypes(ColumnType.col_md_3, ColumnType.col_sm_6, ColumnType.col_xs_12));
-		row3.addWebComponent(new WebComponentColumn(i).setTypes(ColumnType.col_md_3, ColumnType.col_sm_6, ColumnType.col_xs_12));
-		row3.addWebComponent(new WebComponentColumn(i).setTypes(ColumnType.col_md_3, ColumnType.col_sm_6, ColumnType.col_xs_12));
+		// Test Stat Box
+
+		body.addNewRow(new WebComponentColumn(new SimpleTestStatBox(BGColor.green)).setTypes(ColumnType.col_md_3), new WebComponentColumn(new SimpleTestStatBox(BGColor.green)).setTypes(ColumnType.col_md_3), new WebComponentColumn(new SimpleTestStatBox(BGColor.green)).setTypes(ColumnType.col_md_3), new WebComponentColumn(new SimpleTestStatBox(BGColor.green)).setTypes(ColumnType.col_md_3));
+		body.addNewRow(new WebComponentColumn(new SimpleTestStatBox(BGColor.blue)).setTypes(ColumnType.col_xs_3), new WebComponentColumn(new SimpleTestStatBox(BGColor.blue)).setTypes(ColumnType.col_xs_3), new WebComponentColumn(new SimpleTestStatBox(BGColor.blue)).setTypes(ColumnType.col_xs_3), new WebComponentColumn(new SimpleTestStatBox(BGColor.blue)).setTypes(ColumnType.col_xs_3));
+		body.addNewRow(new WebComponentColumn(new SimpleTestStatBox(BGColor.red)).setTypes(ColumnType.col_sm_3), new WebComponentColumn(new SimpleTestStatBox(BGColor.red)).setTypes(ColumnType.col_sm_3), new WebComponentColumn(new SimpleTestStatBox(BGColor.red)).setTypes(ColumnType.col_sm_3), new WebComponentColumn(new SimpleTestStatBox(BGColor.red)).setTypes(ColumnType.col_sm_3));
 
 
 		// Write to Client

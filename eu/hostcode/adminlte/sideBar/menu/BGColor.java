@@ -1,7 +1,7 @@
 package eu.hostcode.adminlte.sideBar.menu;
 
 public enum BGColor {
-	green("bg-green"), red("bg-red");
+	green("bg-green"), red("bg-red"), blue("bg-blue");
 	
 	private String name;
 
